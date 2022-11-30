@@ -1,0 +1,70 @@
+<div classname="signup"></div>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if error %}
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+<h1>Signup!</h1>
+
+<form method = "POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    username:
+    <br/>
+    <input type="text" name="username" />
+    <br/>
+    first_name:
+    <br/>
+    <input type="text" name="first_name" />
+    <br/>
+    last_name:
+    <br/>
+    <input type="text" name="last_name" />
+    <br/>
+    email:
+    <br/>
+    <input type="email" name="email" />
+    <br/>
+    <br/>
+    Select role:
+    <br/>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group",name='radiobtn'>
+        <input type="radio" class="btn-check" name="btnradio1" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="btnradio1">HR</label>
+      
+        <input type="radio" class="btn-check" name="btnradio2" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Team Lead</label>
+      
+        <input type="radio" class="btn-check" name="btnradio3" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio3">Team Member</label>
+      </div>
+      <br/>
+    Password: 
+    <br/>
+    <input type="password" name="password1" />
+    <br/>
+    confirm Password:
+    <br/>
+    <input type="password" name="password2" />
+    <br/>
+    <br/>
+    <input class ="btn btn-primary" type="submit" value= "signup" />
+    <br/>
+    <br/>
+    <a class="btn btn-primary" href="login" role="button">Login</a>
+
+
+</form>
+
+
+
+
+{% endblock %}
+</div>
